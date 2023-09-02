@@ -1,9 +1,9 @@
-import {signInWithGooglePopup} from "../../utils/firbase/firbase.utils"
+import {signInWithGooglePopup , createUserDocumentFromAuth} from "../../utils/firbase/firbase.utils"
 
 export const SignIn = () => {
     const logGoogleUser = async()=>{
-        const response = await signInWithGooglePopup();
-        console.log(response);
+        const {user} = await signInWithGooglePopup();
+        const userDocRef = await  createUserDocumentFromAuth(user)
     }
   return (
     <div>
